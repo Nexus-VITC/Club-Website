@@ -115,9 +115,9 @@ export function FeaturedWorkGrid() {
   return (
     <section className="py-20 relative">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-[600px]">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Past Events Box */}
-          <div className="backdrop-panel rounded-2xl p-6 glow-effect">
+          <div className="backdrop-panel rounded-2xl p-6 glow-effect flex flex-col max-h-[80vh] md:max-h-none">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold gradient-text">🕰 Past Events</h2>
               <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80" asChild>
@@ -126,7 +126,7 @@ export function FeaturedWorkGrid() {
                 </Link>
               </Button>
             </div>
-            <div className="overflow-y-auto h-[480px] pr-2 space-y-4">
+            <div className="overflow-y-auto flex-grow pr-2 space-y-4 min-h-0">
               {pastEvents.map((event) => (
                 <EventCard key={event.id} event={event} />
               ))}
@@ -134,7 +134,7 @@ export function FeaturedWorkGrid() {
           </div>
 
           {/* Upcoming Events Box */}
-          <div className="backdrop-panel rounded-2xl p-6 glow-effect">
+          <div className="backdrop-panel rounded-2xl p-6 glow-effect flex flex-col max-h-[80vh] md:max-h-none">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold gradient-text">🔮 What's Coming Up?</h2>
               <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80" asChild>
@@ -143,7 +143,7 @@ export function FeaturedWorkGrid() {
                 </Link>
               </Button>
             </div>
-            <div className="overflow-y-auto h-[480px] pr-2 space-y-4">
+            <div className="overflow-y-auto flex-grow pr-2 space-y-4 min-h-0">
               {upcomingEvents.map((event) => (
                 <EventCard key={event.id} event={event} />
               ))}
@@ -151,9 +151,9 @@ export function FeaturedWorkGrid() {
           </div>
 
           {/* Split Box - Magazines & Gallery */}
-          <div className="space-y-4">
+          <div className="space-y-4 flex flex-col h-full">
             {/* Magazines Section */}
-            <div className="backdrop-panel rounded-2xl p-6 glow-effect h-[280px]">
+            <div className="backdrop-panel rounded-2xl p-6 glow-effect flex-1 flex flex-col min-h-[180px]">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl font-bold gradient-text">📚 Magazines & Publications</h2>
                 <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80" asChild>
@@ -162,7 +162,7 @@ export function FeaturedWorkGrid() {
                   </Link>
                 </Button>
               </div>
-              <div className="overflow-y-auto h-[200px] pr-2 space-y-3">
+              <div className="overflow-y-auto flex-grow pr-2 space-y-3 min-h-0">
                 {magazines.map((magazine) => (
                   <Card key={magazine.id} className="backdrop-panel border-primary/20 glow-hover cursor-pointer p-3">
                     <div className="flex items-center gap-3">
@@ -182,7 +182,7 @@ export function FeaturedWorkGrid() {
             </div>
 
             {/* Gallery Section */}
-            <div className="backdrop-panel rounded-2xl p-6 glow-effect h-[280px]">
+            <div className="backdrop-panel rounded-2xl p-6 glow-effect flex-1 flex flex-col min-h-[180px]">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl font-bold gradient-text">📸 Explore Gallery</h2>
                 <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80" asChild>
@@ -191,7 +191,7 @@ export function FeaturedWorkGrid() {
                   </Link>
                 </Button>
               </div>
-              <div className="overflow-y-auto h-[200px] pr-2 space-y-3">
+              <div className="overflow-y-auto flex-grow pr-2 space-y-3 min-h-0">
                 {galleries.map((gallery) => (
                   <Card key={gallery.id} className="backdrop-panel border-primary/20 glow-hover cursor-pointer">
                     <div className="flex items-center gap-3 p-3">

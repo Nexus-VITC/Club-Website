@@ -7,13 +7,13 @@ import { TechShowcaseSection } from "@/components/tech-showcase-section"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen">
-      <HeroSectionRedesigned />
-      <FeaturedWorkGrid />
-      <TechShowcaseSection />
-      <CoreTeamTreeRedesigned />
-      <FromTheDesk />
-      <FooterRedesigned />
+    <div className="min-h-screen flex flex-col">
+      <div><HeroSectionRedesigned /></div>
+      <div><FeaturedWorkGrid /></div>
+      <div><TechShowcaseSection /></div>
+      <div><CoreTeamTreeRedesigned /></div>
+      <div><FromTheDesk /></div>
+      <div><FooterRedesigned /></div>
     </div>
   )
 }
