@@ -73,9 +73,31 @@ export function CoreTeamTreeRedesigned() {
       linkedin: "https://linkedin.com/in/emilydavis",
     },
   ]
-
+  
   // Departments Structure
   const departments: Department[] = [
+    {
+      id: "techleads",
+      name: "Tech Leads",
+      icon: <Crown className="h-6 w-6" />,
+      color: "yellow",
+      lead: {
+        id: "14",
+        name: "Kevin Zhang",
+        position: "Overall Tech Lead",
+        photo: "/placeholder.svg?height=80&width=80",
+        bio: "Full-stack developer and technical mentor for all teams.",
+        linkedin: "https://linkedin.com/in/kevinzhang",
+      },
+      members: [
+        {
+          id: "15",
+          name: "Rachel Green",
+          position: "Senior Developer",
+          linkedin: "https://linkedin.com/in/rachelgreen",
+        },
+      ],
+    },
     {
       id: "frontend",
       name: "Frontend",
@@ -157,28 +179,6 @@ export function CoreTeamTreeRedesigned() {
           name: "Sophie Miller",
           position: "ML Engineer",
           linkedin: "https://linkedin.com/in/sophiemiller",
-        },
-      ],
-    },
-    {
-      id: "techleads",
-      name: "Tech Leads",
-      icon: <Crown className="h-6 w-6" />,
-      color: "yellow",
-      lead: {
-        id: "14",
-        name: "Kevin Zhang",
-        position: "Overall Tech Lead",
-        photo: "/placeholder.svg?height=80&width=80",
-        bio: "Full-stack developer and technical mentor for all teams.",
-        linkedin: "https://linkedin.com/in/kevinzhang",
-      },
-      members: [
-        {
-          id: "15",
-          name: "Rachel Green",
-          position: "Senior Developer",
-          linkedin: "https://linkedin.com/in/rachelgreen",
         },
       ],
     },
@@ -447,6 +447,10 @@ export function CoreTeamTreeRedesigned() {
           </div>
 
           {/* Departments Grid */}
+          <div className="flex items-center justify-center mb-6">
+            <Crown className="h-6 w-6 text-yellow-500 mr-2" />
+            <h3 className="text-xl lg:text-2xl font-bold gradient-text">Department Leads</h3>
+          </div>
           <div className="responsive-grid gap-4 lg:gap-6">
             {departments.map((department) => (
               <DepartmentCard key={department.id} department={department} />
