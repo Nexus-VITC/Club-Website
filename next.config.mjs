@@ -2,7 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [],
+    domains: [
+      'images.unsplash.com',
+      'cdn.pixabay.com',
+      'images.pexels.com'
+    ],
     formats: ['image/avif', 'image/webp'],
   },
   experimental: {
@@ -12,6 +16,6 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;
