@@ -32,72 +32,72 @@ interface GalleryItem {
 }
 
 export function FeaturedWorkGrid() {
-  const [pastEvents, setPastEvents] = useState<Event[]>([])
-  const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([])
-  const [magazines, setMagazines] = useState<Magazine[]>([])
-  const [galleries, setGalleries] = useState<GalleryItem[]>([])
+  const [pastEvents, setPastEvents] = useState<Event[]>([]);
+  const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([]);
+  const [magazines, setMagazines] = useState<Magazine[]>([]);
+  const [galleries, setGalleries] = useState<GalleryItem[]>([]);
 
   useEffect(() => {
     // Mock data
     setPastEvents([
       {
-        id: "1",
-        title: "Annual Hackathon 2023",
-        date: "2023-11-15",
-        image: "/placeholder.svg?height=200&width=300",
-        status: "past",
+        id: '1',
+        title: 'Annual Hackathon 2023',
+        date: '2023-11-15',
+        image: '/placeholder.svg?height=200&width=300',
+        status: 'past',
       },
       {
-        id: "2",
-        title: "Tech Talk: Future of AI",
-        date: "2023-10-20",
-        image: "/placeholder.svg?height=200&width=300",
-        status: "past",
+        id: '2',
+        title: 'Tech Talk: Future of AI',
+        date: '2023-10-20',
+        image: '/placeholder.svg?height=200&width=300',
+        status: 'past',
       },
       {
-        id: "3",
-        title: "Web Development Bootcamp",
-        date: "2023-09-10",
-        image: "/placeholder.svg?height=200&width=300",
-        status: "past",
+        id: '3',
+        title: 'Web Development Bootcamp',
+        date: '2023-09-10',
+        image: '/placeholder.svg?height=200&width=300',
+        status: 'past',
       },
-    ])
+    ]);
 
     setUpcomingEvents([
       {
-        id: "4",
-        title: "Annual Tech Symposium 2024",
-        date: "2024-12-25",
-        image: "/placeholder.svg?height=200&width=300",
-        status: "upcoming",
+        id: '4',
+        title: 'Annual Tech Symposium 2024',
+        date: '2024-12-25',
+        image: '/placeholder.svg?height=200&width=300',
+        status: 'upcoming',
       },
       {
-        id: "5",
-        title: "React Workshop",
-        date: "2024-02-15",
-        image: "/placeholder.svg?height=200&width=300",
-        status: "upcoming",
+        id: '5',
+        title: 'React Workshop',
+        date: '2024-02-15',
+        image: '/placeholder.svg?height=200&width=300',
+        status: 'upcoming',
       },
-    ])
+    ]);
 
     setMagazines([
-      { id: "1", title: "Tech Weekly", issue: "#15", date: "2024-01-15" },
-      { id: "2", title: "Innovation Digest", issue: "#12", date: "2024-01-08" },
-      { id: "3", title: "Code Chronicles", issue: "#8", date: "2024-01-01" },
-    ])
+      { id: '1', title: 'Tech Weekly', issue: '#15', date: '2024-01-15' },
+      { id: '2', title: 'Innovation Digest', issue: '#12', date: '2024-01-08' },
+      { id: '3', title: 'Code Chronicles', issue: '#8', date: '2024-01-01' },
+    ]);
 
     setGalleries([
-      { id: "1", title: "Hackathon 2023", coverImage: "/placeholder.svg?height=150&width=200", photoCount: 45 },
-      { id: "2", title: "Tech Talk Series", coverImage: "/placeholder.svg?height=150&width=200", photoCount: 28 },
-      { id: "3", title: "Workshop Sessions", coverImage: "/placeholder.svg?height=150&width=200", photoCount: 32 },
-    ])
-  }, [])
+      { id: '1', title: 'Hackathon 2023', coverImage: '/placeholder.svg?height=150&width=200', photoCount: 45 },
+      { id: '2', title: 'Tech Talk Series', coverImage: '/placeholder.svg?height=150&width=200', photoCount: 28 },
+      { id: '3', title: 'Workshop Sessions', coverImage: '/placeholder.svg?height=150&width=200', photoCount: 32 },
+    ]);
+  }, []);
 
   const EventCard = ({ event }: { event: Event }) => (
     <Link href={`/events/${event.id}`}>
       <Card className="backdrop-panel border-primary/20 glow-hover cursor-pointer mb-4 transition-all duration-300">
         <div className="relative h-32 overflow-hidden rounded-t-lg">
-          <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover" />
+          <Image src={event.image || '/placeholder.svg'} alt={event.title} fill className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           <div className="absolute bottom-2 left-2">
             <Badge variant="outline" className="border-primary text-primary bg-black/50">
@@ -110,12 +110,13 @@ export function FeaturedWorkGrid() {
         </CardContent>
       </Card>
     </Link>
-  )
+  );
 
   return (
     <section className="py-20 relative">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-[600px]">
+        {/* Adjusted grid for responsiveness: default to 1 column, md:2, lg:3. Removed fixed height */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Past Events Box */}
           <div className="backdrop-panel rounded-2xl p-6 glow-effect">
             <div className="flex items-center justify-between mb-6">
@@ -126,7 +127,8 @@ export function FeaturedWorkGrid() {
                 </Link>
               </Button>
             </div>
-            <div className="overflow-y-auto h-[480px] pr-2 space-y-4">
+            {/* Adjusted height for responsiveness: h-96 for mobile, lg:h-[480px] for larger screens */}
+            <div className="overflow-y-auto h-96 lg:h-[480px] pr-2 space-y-4">
               {pastEvents.map((event) => (
                 <EventCard key={event.id} event={event} />
               ))}
@@ -143,7 +145,8 @@ export function FeaturedWorkGrid() {
                 </Link>
               </Button>
             </div>
-            <div className="overflow-y-auto h-[480px] pr-2 space-y-4">
+            {/* Adjusted height for responsiveness: h-96 for mobile, lg:h-[480px] for larger screens */}
+            <div className="overflow-y-auto h-96 lg:h-[480px] pr-2 space-y-4">
               {upcomingEvents.map((event) => (
                 <EventCard key={event.id} event={event} />
               ))}
@@ -151,7 +154,8 @@ export function FeaturedWorkGrid() {
           </div>
 
           {/* Split Box - Magazines & Gallery */}
-          <div className="space-y-4">
+          {/* On smaller screens, these will stack. On medium and larger, they will be side-by-side or fill the column. */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4"> {/* Changed to grid for better stacking on smaller screens and consistent gap */}
             {/* Magazines Section */}
             <div className="backdrop-panel rounded-2xl p-6 glow-effect h-[280px]">
               <div className="flex items-center justify-between mb-4">
@@ -197,7 +201,7 @@ export function FeaturedWorkGrid() {
                     <div className="flex items-center gap-3 p-3">
                       <div className="relative w-12 h-12 rounded-lg overflow-hidden">
                         <Image
-                          src={gallery.coverImage || "/placeholder.svg"}
+                          src={gallery.coverImage || '/placeholder.svg'}
                           alt={gallery.title}
                           fill
                           className="object-cover"
@@ -217,5 +221,5 @@ export function FeaturedWorkGrid() {
         </div>
       </div>
     </section>
-  )
+  );
 }
