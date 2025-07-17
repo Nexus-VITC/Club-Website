@@ -1,9 +1,10 @@
 import { HeroSectionRedesigned } from "@/components/hero-section-redesigned"
 import { FeaturedWorkGrid } from "@/components/featured-work-grid"
-import { CoreTeamTreeRedesigned } from "@/components/core-team-tree-redesigned"
 import { FromTheDesk } from "@/components/from-the-desk"
 import { FooterRedesigned } from "@/components/footer-redesigned"
 import { TechShowcaseSection } from "@/components/tech-showcase-section"
+import TeamPage from "@/app/team/Teampage"
+
 
 export default function HomePage() {
   return (
@@ -11,7 +12,7 @@ export default function HomePage() {
       <HeroSectionRedesigned />
       <FeaturedWorkGrid />
       <TechShowcaseSection />
-      <CoreTeamTreeRedesigned />
+      <TeamPage />
       <FromTheDesk />
       <FooterRedesigned />
     </div>
